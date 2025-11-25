@@ -20,8 +20,10 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `http://localhost:${PORT}`,
-        description: 'Development server',
+        url: process.env.VERCEL_URL 
+          ? `https://${process.env.VERCEL_URL}` 
+          : `http://localhost:${PORT}`,
+        description: process.env.VERCEL_URL ? 'Production server' : 'Development server',
       },
     ],
   },
@@ -265,7 +267,11 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-  console.log(`API documentation available at http://localhost:${PORT}/api-docs`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+    console.log(`API documentation available at http://localhost:${PORT}/api-docs`);
+  });
+}
+
+module.exports = app;
