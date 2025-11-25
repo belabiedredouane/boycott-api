@@ -11,7 +11,9 @@ npm start
 
 Server runs on `http://localhost:3000` (or `PORT` env variable).
 
-**API Documentation:** Available at `http://localhost:3000/api-docs` (Swagger UI)
+**API Documentation:**
+- Production: [https://boycott.api.yaqiin.org/api-docs](https://boycott.api.yaqiin.org/api-docs) (Swagger UI)
+- Local: `http://localhost:3000/api-docs` (Swagger UI)
 
 ## API Endpoints
 

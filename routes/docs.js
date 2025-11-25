@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.get('/swagger.json', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.send(swaggerSpec);
 });
 

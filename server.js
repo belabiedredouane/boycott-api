@@ -5,10 +5,12 @@ const whyBoycottRouter = require('./routes/whyBoycott');
 const healthRouter = require('./routes/health');
 const docsRouter = require('./routes/docs');
 const { errorHandler } = require('./middleware/errorHandler');
+const corsMiddleware = require('./middleware/cors');
 const { PORT } = require('./config/constants');
 
 const app = express();
 
+app.use(corsMiddleware);
 app.use(express.json());
 
 app.use('/products', productsRouter);
