@@ -39,8 +39,6 @@ function paginate(array, page, limit) {
 function translateProduct(product, lang, categoriesData, countriesData) {
   const translated = {
     name: product.name,
-    category_id: product.category_id,
-    country_code: product.country_code,
   };
 
   const category = categoriesData.find(cat => cat.id === product.category_id);
@@ -56,7 +54,6 @@ function translateProduct(product, lang, categoriesData, countriesData) {
   if (product.alternatives) {
     translated.alternatives = product.alternatives.map(alt => ({
       name: alt.name,
-      country_code: alt.country_code,
       link: alt.link,
       country: translate(
         countriesData.find(c => c.code === alt.country_code)?.name || {},

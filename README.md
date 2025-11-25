@@ -11,6 +11,8 @@ npm start
 
 Server runs on `http://localhost:3000` (or `PORT` env variable).
 
+**API Documentation:** Available at `http://localhost:3000/api-docs` (Swagger UI)
+
 ## API Endpoints
 
 ### GET /products
